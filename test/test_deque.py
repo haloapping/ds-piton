@@ -1,6 +1,6 @@
 import unittest
 
-from deque import Deque
+from main.deque import Deque
 
 
 class TestDeque(unittest.TestCase):

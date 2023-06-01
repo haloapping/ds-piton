@@ -85,14 +85,14 @@ class SinglyLinkedList:
             return f"remove rear {rear}"
 
     def search(self, val: int) -> tuple[bool, int]:
-        items = self.all_items()
+        items = self.all_nodes()
 
         try:
             return True, items.index(val)
         except ValueError:
             return False, -1
 
-    def all_items(self) -> list:
+    def all_nodes(self) -> list:
         current_node = self.head
         nodes: list = []
 

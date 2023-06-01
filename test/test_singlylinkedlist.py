@@ -1,6 +1,6 @@
 import unittest
 
-from singlylinkedlist import SinglyLinkedList
+from main.singlylinkedlist import SinglyLinkedList
 
 
 class TestSinglyLinkedList(unittest.TestCase):
@@ -25,7 +25,7 @@ class TestSinglyLinkedList(unittest.TestCase):
     def test_all_items_when_empty(self):
         sll = SinglyLinkedList()
 
-        self.assertListEqual(sll.all_items(), [])
+        self.assertListEqual(sll.all_nodes(), [])
 
     def test_all_items_when_not_empty_insert_front(self):
         sll = SinglyLinkedList()
@@ -33,7 +33,7 @@ class TestSinglyLinkedList(unittest.TestCase):
         for val in range(5):
             sll.insert_front(val)
 
-        self.assertListEqual(sll.all_items(), [4, 3, 2, 1, 0])
+        self.assertListEqual(sll.all_nodes(), [4, 3, 2, 1, 0])
 
     def test_all_items_when_not_empty_insert_rear(self):
         sll = SinglyLinkedList()
@@ -41,7 +41,7 @@ class TestSinglyLinkedList(unittest.TestCase):
         for val in range(5):
             sll.insert_rear(val)
 
-        self.assertListEqual(sll.all_items(), [0, 1, 2, 3, 4])
+        self.assertListEqual(sll.all_nodes(), [0, 1, 2, 3, 4])
 
     def test_remove_front(self):
         sll = SinglyLinkedList()
