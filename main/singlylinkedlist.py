@@ -1,13 +1,13 @@
 class Node:
     def __init__(self, val: int) -> None:
-        self.val = val
-        self.next = None
+        self.val: int = val
+        self.next: Node = None
 
 
 class SinglyLinkedList:
     def __init__(self) -> None:
-        self.head = None
-        self.len = 0
+        self.head: Node = None
+        self.len: int = 0
 
     def is_empty(self) -> bool:
         return self.head is None
@@ -22,7 +22,7 @@ class SinglyLinkedList:
         if self.is_empty():
             return None
 
-        current_node = self.head
+        current_node: Node = self.head
 
         while current_node.next is not None:
             current_node = current_node.next
@@ -30,7 +30,7 @@ class SinglyLinkedList:
         return current_node.val
 
     def insert_front(self, val: int) -> str:
-        new_node = Node(val)
+        new_node: Node = Node(val)
 
         new_node.next = self.head
         self.head = new_node
@@ -49,13 +49,13 @@ class SinglyLinkedList:
         return f"remove front {front}"
 
     def insert_rear(self, val: int) -> str:
-        new_node = Node(val)
+        new_node: Node = Node(val)
 
         if self.is_empty():
             new_node.next = self.head
             self.head = new_node
         else:
-            current_node = self.head
+            current_node: Node = self.head
 
             while current_node.next is not None:
                 current_node = current_node.next
@@ -73,7 +73,7 @@ class SinglyLinkedList:
             self.head = None
             self.len -= 1
         else:
-            current_node = self.head
+            current_node: Node = self.head
 
             while current_node.next.next is not None:
                 current_node = current_node.next
@@ -85,16 +85,16 @@ class SinglyLinkedList:
             return f"remove rear {rear}"
 
     def search(self, val: int) -> tuple[bool, int]:
-        items = self.all_nodes()
+        items: list[int] = self.all_nodes()
 
         try:
             return True, items.index(val)
         except ValueError:
             return False, -1
 
-    def all_nodes(self) -> list:
-        current_node = self.head
-        nodes: list = []
+    def all_nodes(self) -> list[int]:
+        current_node: Node = self.head
+        nodes: list[int] = []
 
         while current_node is not None:
             nodes.append(current_node.val)
