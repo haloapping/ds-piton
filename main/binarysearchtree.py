@@ -42,23 +42,29 @@ class BST:
         if self.is_empty():
             return None
         else:
-            current_node = self.root
+            return self.__min(self.root).val
 
-            while current_node.left is not None:
-                current_node = current_node.left
+    def __min(self, root: Node) -> Node:
+        current_node = self.root
 
-            return current_node.val
+        while current_node.left is not None:
+            current_node = current_node.left
+
+        return current_node
 
     def max(self) -> None | int:
         if self.is_empty():
             return None
         else:
-            current_node = self.root
+            return self.__max(self.root).val
 
-            while current_node.right is not None:
-                current_node = current_node.right
+    def __max(self, root: Node) -> Node:
+        current_node = self.root
 
-            return current_node.val
+        while current_node.right is not None:
+            current_node = current_node.right
+
+        return current_node
 
     def find(self, val: int) -> bool:
         return self.__find(self.root, val)
@@ -99,19 +105,13 @@ class BST:
                 del_node = root.val
                 root = None
                 return f"remove {del_node}"
-            else:
-                current_node = root
-                del_node = current_node.val
 
-                while current_node.left is not None:
-                    current_node = current_node.left
+            temp = self.__min(root.right)
+            root.val = temp.val
 
-                temp = current_node
-                root.val = temp.val
+            root.right = self.__remove(root.right, temp.val)
 
-                root.right = self.__remove(root.right, temp.val)
-
-        return f"remove {del_node}"
+        return f"remove {root.right}"
 
     def preorder_traversal(self) -> list[int]:
         return self.__preorder(self.root)
@@ -151,12 +151,3 @@ class BST:
             return []
 
         return self.postorder_nodes
-
-
-bst = BST()
-
-bst.insert(1)
-bst.insert(2)
-bst.insert(3)
-
-print(bst.inorder_traversal())

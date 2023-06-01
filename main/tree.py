@@ -24,23 +24,3 @@ def postorder_traversal(root: Node):
         postorder_traversal(root.left)
         postorder_traversal(root.right)
         print(root.val, end=" ")
-
-
-root = Node(1)
-root.left = Node(2)
-root.right = Node(3)
-root.left.left = Node(4)
-root.left.right = Node(5)
-root.right.left = Node(6)
-root.right.right = Node(7)
-
-print("Preorder Traversal  :", end=" ")
-preoroder_traversal(root)
-print()
-
-print("Inorder Traversal   :", end=" ")
-inorder_traversal(root)
-print()
-
-print("Postorder Traversal :", end=" ")
-postorder_traversal(root)

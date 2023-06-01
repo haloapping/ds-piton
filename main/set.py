@@ -27,15 +27,3 @@ class Set:
 
         self.__dict_items.pop(val)
         return f"remove {val}"
-
-
-sets = Set(1, 2, 3, 4, 5, 4, 3, 1)
-print(sets.show())
-print(sets.add(1))
-print(sets.add(10))
-print(sets.add(10))
-print(sets.add(10))
-print(sets.add(-10))
-print(sets.show())
-print(sets.remove(-10))
-print(sets.show())
