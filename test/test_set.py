@@ -1,5 +1,8 @@
+import os
+import sys
 import unittest
 
+sys.path.append(os.getcwd()[: len(os.getcwd()) - 5])
 from main.set import Set
 
 
@@ -35,3 +38,7 @@ class TestSet(unittest.TestCase):
         sets.add(4)
 
         self.assertTupleEqual(tuple(sorted(sets.show())), (1, 2, 3, 4))
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -1,5 +1,8 @@
+import os
+import sys
 import unittest
 
+sys.path.append(os.getcwd()[: len(os.getcwd()) - 5])
 from main.singlylinkedlist import SinglyLinkedList
 
 
@@ -140,3 +143,7 @@ class TestSinglyLinkedList(unittest.TestCase):
             sll.remove_rear()
 
         self.assertEqual(sll.len, 3)
+
+
+if __name__ == "__main__":
+    unittest.main()

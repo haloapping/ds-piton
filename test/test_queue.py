@@ -1,5 +1,8 @@
+import os
+import sys
 import unittest
 
+sys.path.append(os.getcwd()[: len(os.getcwd()) - 5])
 from main.queue_ import Queue
 
 
@@ -63,3 +66,7 @@ class TestQueue(unittest.TestCase):
             queue.enqueue(i)
 
         self.assertEqual(queue.search(5), (-1, False))
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -1,5 +1,8 @@
+import os
+import sys
 import unittest
 
+sys.path.append(os.getcwd()[: len(os.getcwd()) - 5])
 from main.stack import Stack
 
 
@@ -89,3 +92,7 @@ class TestStack(unittest.TestCase):
             stack.push(i)
 
         self.assertEqual(stack.show_all_items(), [0, 1, 2, 3, 4])
+
+
+if __name__ == "__main__":
+    unittest.main()
